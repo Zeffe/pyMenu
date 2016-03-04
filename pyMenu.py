@@ -30,3 +30,20 @@ for i in range(commands):
     content.append(raw_input(" [>] Command #" + str(i + 1) + ": "))
     command[content[i + 1]] = (raw_input(" [>] Command #" + str(i + 1) + " description: "))
     print ""
+
+out = 'print "\\n Main Menu\\n\\n\\t' + content[0] + '\\n\\n Available Commands:\\n'
+
+for i in content:
+    if i is not content[0]:
+        out += '\\n\\t' + i + '\\t\\t' + command[i]
+out += '\\n"'
+
+_file = open("menu.txt", "w")
+_file.write(out)
+_file.close()
+
+clear()
+print out
+print ""
+print "Exported to menu.txt in local directory."
+raw_input()
